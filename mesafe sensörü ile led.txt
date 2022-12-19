@@ -1,0 +1,91 @@
+
+int trigPin=9;
+int echoPin=10;
+int kled=2,yled=3,sled=4,mled=5,bled=6;
+long sure;
+long uzaklik;
+void setup() {
+pinMode(trigPin,OUTPUT);
+pinMode(echoPin,INPUT);
+pinMode(kled,OUTPUT);
+pinMode(yled,OUTPUT);
+pinMode(sled,OUTPUT);
+pinMode(mled,OUTPUT);
+pinMode(bled,OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+digitalWrite(trigPin,LOW);
+delayMicroseconds(2);
+digitalWrite(trigPin,HIGH);
+delayMicroseconds(10);
+digitalWrite(trigPin,LOW);
+sure=pulseIn(echoPin,HIGH);
+uzaklik=sure/2/29.154;
+
+Serial.print("Sinyal: ");
+Serial.print(sure);
+Serial.println(": Hareket etmistir.");
+
+Serial.print("Mesafe: ");
+Serial.print(uzaklik); 
+Serial.println(": CM");
+
+delay(1000);
+if(uzaklik<=50)
+{
+  digitalWrite(kled,HIGH);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(mled,LOW);
+  digitalWrite(bled,LOW);
+
+}
+else if(uzaklik<=100)
+{
+  digitalWrite(kled,LOW);
+  digitalWrite(yled,HIGH);
+  digitalWrite(sled,LOW);
+  digitalWrite(mled,LOW);
+  digitalWrite(bled,LOW);
+
+}
+else if(uzaklik<=150)
+{
+  digitalWrite(kled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,HIGH);
+  digitalWrite(mled,LOW);
+  digitalWrite(bled,LOW);
+
+}
+else if(uzaklik<=200)
+{
+  digitalWrite(kled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(mled,HIGH);
+  digitalWrite(bled,LOW);
+
+}
+else if(uzaklik<=250)
+{
+  digitalWrite(kled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(mled,HIGH);
+  digitalWrite(bled,LOW);
+
+}
+  else
+{
+  digitalWrite(kled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(mled,LOW);
+  digitalWrite(bled,HIGH);
+}
+delay(50);
+}
+

@@ -1,0 +1,22 @@
+int kled=2;
+ void setup()
+{
+  pinMode(kled,OUTPUT);
+   Serial.begin(9600);
+   
+}
+
+void loop()
+{
+  int ldr_sensor_deger=analogRead(A0);
+  Serial.println(ldr_sensor_deger);
+  if(ldr_sensor_deger<=250)
+  {
+    digitalWrite(kled,HIGH);
+  }
+  else
+  {
+     digitalWrite(kled,LOW);
+  }
+  delay(500);
+}

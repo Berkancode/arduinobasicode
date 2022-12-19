@@ -1,0 +1,53 @@
+const int kled=4;
+const int yled=3;
+const int pir_sensor=13;
+const int b1=11, b2=12 , buzzer=10;
+bool alarm=false;
+void setup()
+{
+ pinMode(kled,OUTPUT);
+ pinMode(yled,OUTPUT);
+ pinMode(b1,INPUT);
+ pinMode(b2,INPUT);
+ pinMode(buzzer,OUTPUT);
+ pinMode(pir_sensor,INPUT);
+ Serial.begin(9600);
+}
+
+void loop()
+{
+if(digitalRead(b1)==1)
+{
+  alarm=true;
+  delay(5000);
+  
+}
+  if(digitalRead(b2)==1)
+{
+  alarm=false;
+  }
+  Serial.print("Alarm: ");
+  Serial.println(alarm);
+  
+  if(alarm==true)
+  {
+    digitalWrite(yled,HIGH);
+    digitalWrite(kled,LOW);
+    if(digitalRead(pir_sensor)==1)
+    {
+      while(digitalRead(b2)==0)
+      {
+        digitalWrite(buzzer,HIGH);
+        delay(500);
+        digitalWrite(buzzer,LOW);
+        delay(500);
+      
+      }
+    }
+  }
+  else
+    {
+    digitalWrite(yled,LOW);
+    digitalWrite(kled,HIGH);
+    }
+}

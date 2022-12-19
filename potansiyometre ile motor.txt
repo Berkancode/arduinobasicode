@@ -1,0 +1,15 @@
+const int motor=2;
+void setup() {
+pinMode(motor,OUTPUT);
+}
+
+void loop() {
+while(analogRead(A0)<=500)
+{
+digitalWrite(motor,HIGH);
+}
+while(analogRead(A0)>500)
+{
+digitalWrite(motor,LOW);
+}
+}

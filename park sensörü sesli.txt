@@ -1,0 +1,81 @@
+int trigpin=8, echopin=9, buzzer=10, led=11;
+long mesafe,sure;
+void setup() {
+
+pinMode(trigpin,OUTPUT);
+pinMode(echopin,INPUT);
+pinMode(buzzer,OUTPUT);
+pinMode(led,OUTPUT);
+}
+
+void loop() {
+
+digitalWrite(trigpin,LOW);
+delayMicroseconds(2);
+digitalWrite(trigpin,HIGH);
+delayMicroseconds(10);
+digitalWrite(trigpin,LOW);
+sure=pulseIn(echopin,HIGH);
+mesafe=(sure/2)/29.1;
+
+if(mesafe<=5)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(20);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(20);
+}
+
+else if(mesafe<=10)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(50);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(50);
+}
+
+else if(mesafe<=15)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(70);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(70);
+}
+
+else if(mesafe<=20)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(100);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(100);
+}
+
+else if(mesafe<=25)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(150);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(150);
+}
+
+else if(mesafe<=30)
+{
+  digitalWrite(buzzer,HIGH);
+  digitalWrite(led,HIGH);
+  delay(250);
+  digitalWrite(buzzer,LOW);
+  digitalWrite(led,LOW);
+  delay(250);
+}
+
+}

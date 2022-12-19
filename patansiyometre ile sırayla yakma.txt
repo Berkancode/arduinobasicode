@@ -1,0 +1,55 @@
+int kled=2;
+int sled=3;
+int yled=4;
+int bled=5;
+int a=0;
+void setup() {
+pinMode(A0,INPUT);
+pinMode(kled,OUTPUT);
+pinMode(sled,OUTPUT);
+pinMode(yled,OUTPUT);
+pinMode(bled,OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+a=analogRead(A0);
+Serial.println(a);
+if(a<=100)
+ {
+  digitalWrite(bled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(kled,HIGH);
+ }
+else if(a<=200)
+ {
+  digitalWrite(bled,LOW);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,HIGH);
+  digitalWrite(kled,LOW);
+ }
+else if(a<=300)
+ {
+  digitalWrite(bled,LOW);
+  digitalWrite(yled,HIGH);
+  digitalWrite(sled,LOW);
+  digitalWrite(kled,LOW);
+ }
+ else if(a<=400)
+ {
+  digitalWrite(bled,HIGH);
+  digitalWrite(yled,LOW);
+  digitalWrite(sled,LOW);
+  digitalWrite(kled,LOW);
+ }
+
+ else
+ {
+  digitalWrite(bled,HIGH);
+  digitalWrite(yled,HIGH);
+  digitalWrite(sled,HIGH);
+  digitalWrite(kled,HIGH);
+ }
+
+}

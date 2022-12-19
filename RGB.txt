@@ -1,0 +1,46 @@
+int k=11 , m=10 , y=9;
+void setup()
+{
+  pinMode(k,OUTPUT);
+  pinMode(m,OUTPUT);
+  pinMode(y,OUTPUT);
+}
+
+void loop()
+{
+//beyaz renk
+  analogWrite(k,255);
+  analogWrite(m,255);
+  analogWrite(y,255);
+  delay(1000);
+  
+  //sarı renk
+  analogWrite(k,255);
+  analogWrite(m,0);
+  analogWrite(y,255);
+  delay(1000);
+  
+  //mor renk
+  analogWrite(k,255);
+  analogWrite(m,255);
+  analogWrite(y,0);
+  delay(1000);
+  
+  //kırmızı renk
+  analogWrite(k,255);
+  analogWrite(m,0);
+  analogWrite(y,0);
+  delay(1000);
+  
+  //mavi renk
+  analogWrite(k,0);
+  analogWrite(m,255);
+  analogWrite(y,0);
+  delay(1000);
+  
+  //yesil renk
+  analogWrite(k,0);
+  analogWrite(m,0);
+  analogWrite(y,255);
+  delay(1000);
+}

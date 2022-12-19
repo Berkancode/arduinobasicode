@@ -1,0 +1,36 @@
+
+int kirmizi_led=6;
+
+int sari_led=5;
+int yesil_led=4;
+
+void setup()  
+{
+pinMode(2,INPUT);
+pinMode(3,INPUT);
+pinMode(4,OUTPUT);
+pinMode(5,OUTPUT);
+pinMode(5,OUTPUT);
+}
+void loop() 
+{  
+  if(digitalRead(2))
+  {
+  digitalWrite(yesil_led,HIGH);
+  digitalWrite(sari_led,HIGH);
+  digitalWrite(kirmizi_led,HIGH);
+
+  }
+else
+{
+  digitalWrite(yesil_led,HIGH);
+  digitalWrite(sari_led,HIGH);
+  digitalWrite(kirmizi_led,HIGH);
+delay(1000);
+  digitalWrite(yesil_led,LOW);
+  digitalWrite(sari_led,LOW);
+  digitalWrite(kirmizi_led,LOW);
+delay(1000);
+}
+}
+
